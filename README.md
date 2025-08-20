@@ -12,7 +12,7 @@
 
 📌 **Problem Statement**
 
-In today's competitive market, customer retention has become as crucial as customer acquisition. While attracting new customers often requires a significant investment in advertising campaigns, **retaining existing ones** is both more cost-effective and more impactful in long-term profitability. However, businesses frequently don't have a structured way to determine which set of customers is most profitable or which have the intention to leave.  
+In today's competitive market, customer retention has become as crucial as customer acquisition. While attracting new customers often requires a significant investment in advertising campaigns, **retaining existing ones** is more cost-effective. However, businesses frequently don't have a structured way to determine which set of customers is most profitable or which have the intention to leave.  
 The challenge lies in segmenting customers based on their using behavior to answer key business questions:
 - Who are our most loyal and profitable that we must prioritise?
 - Which customers are at risk of churning and needing immediate attention?
@@ -20,6 +20,21 @@ The challenge lies in segmenting customers based on their using behavior to answ
 - What action could be done to achieve all those statements?
 
 To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework provides a data-driven approach to classify customers into actionable segments.
+
+❓ **About RFM Analysis**
+- RFM (Recency – Frequency – Monetary) analysis is a customer segmentation technique widely used in marketing and customer relationship management. It evaluates customer value based on three key dimensions:
+  - **Recency (R)**: How recently a customer made a purchase.
+  - **Frequency (F)**: How often a customer makes a purchase.
+  - **Monetary (M)**: How much money a customer spends.
+- In this project, I applied the quantile method to score each dimension. Specifically, all customers were divided into five equal groups based on their Recency, Frequency, and Monetary values:
+  - Score 5 → Top 20% (best customers for that metric)
+  - Score 1 → Bottom 20% (lowest-performing customers)
+- After getting each of R-F-M score, fuse them into 1 score in format of 442, 433, 541, 343, 321 ,etc. calling RFM and assign it with suitable mark. For example:
+  - Customer with very high score such as 555, 554, 544 are call Champion
+  - Low RFM score such as 111, 112, 121 are Lost customer 
+- By scoring and segmenting customers across these dimensions, businesses can:
+  - Identify their most valuable and loyal customers.
+  - Detect at-risk or inactive customers.
 
 🏹 **Who is this project for**
 - Marketing department who wanna take significant action on their campaign.
@@ -73,8 +88,8 @@ INNER JOIN `adventureworks2019.Person.CustomerAW`
 USING(CustomerID)
 ```
 **📬 Using Dataset**
-- After the query there's only 3 tables, a quick view of these tables:
-  - *Fact_sales* table (main table):
+- After the query there's only **3 tables**, a quick view of these tables:
+  - **Fact_sales** table (main table):
 
 | Row | CustomerID | PersonID | PersonType | FirstName | MiddleName | LastName | SalesOrderID | OrderDate               | LineTotal | OrderQty | UnitPrice | ProductID |
 |-----|------------|----------|------------|-----------|------------|----------|--------------|-------------------------|-----------|----------|-----------|-----------|
@@ -84,7 +99,7 @@ USING(CustomerID)
 | 4   | 11012      | 11663    | IN         | Lauren    | M          | Walker   | 54508        | 2013-08-16 00:00:00 UTC | 35.00     | 1        | 35.00     | 930       |
 | 5   | 11012      | 11663    | IN         | Lauren    | M          | Walker   | 54508        | 2013-08-16 00:00:00 UTC | 34.99     | 1        | 34.99     | 708       |
 
-   - *Products* Table:
+   - **Products** Table:
 
 | Row | ProductID | Name              | Category    | Subcategory |
 |-----|-----------|-------------------|-------------|-------------|
@@ -94,7 +109,7 @@ USING(CustomerID)
 | 4   | 935       | LL Mountain Pedal | Components  | Pedals      |
 | 5   | 936       | ML Mountain Pedal | Components  | Pedals      |
 
-   - *Demographic* table:
+   - **Demographic** table:
 
 | Row | CustomerID | Country | State             | Title |
 |-----|------------|---------|-------------------|-------|
@@ -104,5 +119,68 @@ USING(CustomerID)
 | 4   | 29603      | Canada  | Manitoba          | Sra.  |
 | 5   | 29603      | Canada  | Brunswick         | Sra.  |
 
+- The main table contain more than 110K rows and the other 2 contain specific information of products and customers 
+
+## 📋 Main process in Power BI
+### 1. ⚒️ Preprocessing Data
+**Recency calculation**
+- For the recency, just substract the most recent day in the data set with the last day that user made a purchase (lastPurchasedDay)
+```dax
+Recency = DATEDIFF([lastPurchasedDay],DATE(2014,7,1), Day)
+```
+- Assign Recency score to each person using PERCENTILE.INC function 
+```dax
+Recency score = SWITCH(
+                    TRUE,
+                    'RFM Table'[Recency Value] <= PERCENTILE.INC('RFM Table'[Recency Value],0.20),"5",
+                    'RFM Table'[Recency Value] <= PERCENTILE.INC('RFM Table'[Recency Value],0.40),"4",
+                    'RFM Table'[Recency Value] <= PERCENTILE.INC('RFM Table'[Recency Value],0.60),"3",
+                    'RFM Table'[Recency Value] <= PERCENTILE.INC('RFM Table'[Recency Value],0.80),"2",
+                      "1"
+                     )
+```
+**Frequency calculation**
+- For the frequency, count the number of sales order each person made
+```dax
+Frequency = COUNT(Fact_Sales[SalesOrderID])
+```
+- Assign to Frequency score
+```dax
+Frequency Score = 
+            SWITCH(TRUE(),
+                'RFM Table'[Frequency Value] <= PERCENTILE.INC('RFM Table'[Frequency Value],0.20),"1",
+                'RFM Table'[Frequency Value] <= PERCENTILE.INC('RFM Table'[Frequency Value],0.40),"2",
+                'RFM Table'[Frequency Value] <= PERCENTILE.INC('RFM Table'[Frequency Value],0.60),"3",
+                'RFM Table'[Frequency Value] <= PERCENTILE.INC('RFM Table'[Frequency Value],0.80),"4",
+                "5")
+```
+**Monetary calculation**
+- For the monetary, get the total amount of money each customer spent
+```dax
+Monetary = SUM(Fact_Sales[LineTotal])
+```
+- Assign to Monetary score
+```dax
+Monetary Score = SWITCH(
+                    TRUE(),
+                    'RFM Table'[Monetary Value] <= PERCENTILE.INC('RFM Table'[Monetary Value],0.2),"1",
+                    'RFM Table'[Monetary Value] <= PERCENTILE.INC('RFM Table'[Monetary Value],0.4),"2",
+                    'RFM Table'[Monetary Value] <= PERCENTILE.INC('RFM Table'[Monetary Value],0.6),"3",
+                    'RFM Table'[Monetary Value] <= PERCENTILE.INC('RFM Table'[Monetary Value],0.8),"4",
+                    "5")
+```
+**Conect all these 3 values into RFM score**
+```dax
+RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[Monetary Score]
+```
+- The output look like this:
+
+| RFM Score | CustomerID |
+|-----------|------------|
+| 511       | 11418      |
+| 111       | 12741      |
+| 211       | 12799      |
+| 311       | 12800      |
+| 511       | 12802      |
 
 
