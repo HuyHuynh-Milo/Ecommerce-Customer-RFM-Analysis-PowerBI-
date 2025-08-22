@@ -8,9 +8,9 @@
 - Date: August 2025
 - Tools: Power BI, Google BigQuery
 
-## 📝 Background & Overview 
+## 📝 1. Background & Overview 
 
-📌 **Problem Statement**
+### 📌 a. Problem Statement
 
 In today's competitive market, customer retention has become as crucial as customer acquisition. While attracting new customers often requires a significant investment in advertising campaigns, **retaining existing ones** is more cost-effective. However, businesses frequently don't have a structured way to determine which set of customers is most profitable or which have the intention to leave.  
 The challenge lies in segmenting customers based on their using behavior to answer key business questions:
@@ -21,7 +21,7 @@ The challenge lies in segmenting customers based on their using behavior to answ
 
 To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework provides a data-driven approach to classify customers into actionable segments.
 
-❓ **About RFM Analysis**
+### ❓ b. About RFM Analysis
 - RFM (Recency – Frequency – Monetary) analysis is a customer segmentation technique widely used in marketing and customer relationship management. It evaluates customer value based on three key dimensions:
   - **Recency (R)**: How recently a customer made a purchase.
   - **Frequency (F)**: How often a customer makes a purchase.
@@ -29,15 +29,25 @@ To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework p
 - In this project, I applied the quantile method to score each dimension. Specifically, all customers were divided into five equal groups based on their Recency, Frequency, and Monetary values:
   - Score 5 → Top 20% (best customers for that metric)
   - Score 1 → Bottom 20% (lowest-performing customers)
-- After getting each of R-F-M score, fuse them into 1 score in format of 442, 433, 541, 343, 321 ,etc. calling RFM and assign it with suitable mark. For example:
-  - Customer with very high score such as 555, 554, 544 are call Champion
-  - Low RFM score such as 111, 112, 121 are Lost customer 
-- By scoring and segmenting customers across these dimensions, businesses can:
-  - Identify their most valuable and loyal customers.
-  - Detect at-risk or inactive customers.
+- After getting each of R-F-M score, fuse them into 1 score in the format of 442, 433, 541, 343, 321 ,etc. calling RFM and assign it with a suitable mark. For example:
+  - Customers with very high scores such as 555, 554, 544 are called Champion
+  - Low RFM score, such as 111, 112, 121 are Lost customer 
+- Segmentation
+  - From the RFM analysis, I focused on 6 key customer segments that are the most relevant for business strategy:
+
+| Segment               | Business Meaning |
+|-----------------------|------------------|
+| **Champions**         | High-value customers who purchase frequently and recently. Generously paying and will make a purchase anytime soon|
+| **Loyal Customers**   | Regular customers with consistent purchases and spending pretty high|
+| **Potential Loyalist**| Customers who have been buying recently, middle level of spending, and purchased many times  |
+| **Promising**         | Recently buying or maybe new customers with high spending but not shopping quite often. |
+| **Can’t Lose Them**   | High-value customers with consistent buying in the past, who haven’t purchased in a while.  |
+| **At Risk**           | Customers showing signs of churn, bought a lot and many times in the past |
+
+
 
 🏹 **Who is this project for**
-- Marketing department who wanna take significant action on their campaign.
+- The marketing department who wanna take significant action on their campaign.
 - Sales managers who need to identify high-value users to prioritise efforts.
 - Business Analyst and Data Analyst who want to understand customer behaviour through segmentation.
 
@@ -123,6 +133,7 @@ USING(CustomerID)
 
 ## 📋 Main process in Power BI
 ### 1. ⚒️ Preprocessing Data
+💻 **a. RFM Calculate**
 **Recency calculation**
 - For the recency, just substract the most recent day in the data set with the last day that user made a purchase (lastPurchasedDay)
 ```dax
@@ -169,11 +180,11 @@ Monetary Score = SWITCH(
                     'RFM Table'[Monetary Value] <= PERCENTILE.INC('RFM Table'[Monetary Value],0.8),"4",
                     "5")
 ```
-**Conect all these 3 values into RFM score**
+✈️ **b. Connect all these 3 values into the RFM score**
 ```dax
 RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[Monetary Score]
 ```
-- The output look like this:
+- The output looks like this:
 
 | RFM Score | CustomerID |
 |-----------|------------|
@@ -183,4 +194,26 @@ RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[
 | 311       | 12800      |
 | 511       | 12802      |
 
+- Finally, insert the table of RFM segment for the PBI to assign by using RFM Score as key value. The table looks like this:
+
+| RFM Score | Segment        |
+|-----------|----------------|
+| 455       | Champions      |
+| 445       | Champions      |
+| 543       | Loyal Customers|
+| 444       | Loyal Customers|
+| 435       | Loyal Customers|
+
+🚀 **c. Connection of tables**
+
+- The Fact-Sales is the main table that contains all the information about transactions.
+- 4 dim-tables are: SalesReason (reason the bought), Product, Demographic, and RFM Table
+- RFM Score Segment, which indicates the assigning segment is connected to RFM Table
+
+<img width="1872" height="1420" alt="Tables connection" src="https://github.com/user-attachments/assets/5820107c-4b64-4265-bdb7-43724082628a" />
+
+### 2. 📈 Dashboard (Power BI)
+**Main Dashboard**
+
+<img width="2556" height="1436" alt="Main Page" src="https://github.com/user-attachments/assets/da013d48-ecd5-47cb-bf95-0cfeb737694d" />
 
