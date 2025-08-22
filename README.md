@@ -210,10 +210,23 @@ RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[
 - 4 dim-tables are: SalesReason (reason the bought), Product, Demographic, and RFM Table
 - RFM Score Segment, which indicates the assigning segment is connected to RFM Table
 
+
 <img width="1872" height="1420" alt="Tables connection" src="https://github.com/user-attachments/assets/5820107c-4b64-4265-bdb7-43724082628a" />
 
 ### 2. 📈 Dashboard (Power BI)
-**Main Dashboard**
+**a. Main Dashboard**
 
-<img width="2556" height="1436" alt="Main Page" src="https://github.com/user-attachments/assets/da013d48-ecd5-47cb-bf95-0cfeb737694d" />
+<img width="2555" height="1442" alt="Main Page" src="https://github.com/user-attachments/assets/5ee6c258-5606-4cff-a78c-0abe3c31869c" />
+
+**Overview**
+- Customers: 19.12K | Transactions: 121K | Revenue: 109.85M
+
+**Highlights**
+
+- Champions (8.8%)
+  - Hold the highest revenue above all, at about 73.28M (~67%)
+  - Supreme purchase frequency with more than 60K times.
+- Cant loose them (9%)
+  - 
+
 
