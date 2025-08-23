@@ -214,19 +214,85 @@ RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[
 <img width="1872" height="1420" alt="Tables connection" src="https://github.com/user-attachments/assets/5820107c-4b64-4265-bdb7-43724082628a" />
 
 ### 2. 📈 Dashboard (Power BI)
-**a. Main Dashboard**
+### a. Main Dashboard
 
-<img width="2555" height="1442" alt="Main Page" src="https://github.com/user-attachments/assets/5ee6c258-5606-4cff-a78c-0abe3c31869c" />
+<img width="2558" height="1446" alt="Main Page" src="https://github.com/user-attachments/assets/2269b687-fad7-44fb-a63d-61e9c859c0e8" />
 
-**Overview**
+📝 **Overview**
 - Customers: 19.12K | Transactions: 121K | Revenue: 109.85M
 
-**Highlights**
+📊 **Highlights**
 
 - Champions (8.8%)
   - Hold the highest revenue above all, at about 73.28M (~67%)
   - Supreme purchase frequency with more than 60K times.
-- Cant loose them (9%)
-  - 
+- Can't lose them (9%)
+  - Made high revenue at about 16.52M and purchased very frequently
+  - However, they have the highest days since last purchased, 475 days on average.
+- At risk (12.5%)
+  - In the top 3 Revenue and Frequency
+  - Long time no purchase (276 days since last purchase)
+- Loyal Customer (7.4%) & Promising (13.8%)
+  - Both are in the top 5 Revenue and top 6 Frequency
+  - Loyal Customers just take 7.4% of total customers but made high revenue at about 4.92M.
+
+🚀 **Business Reccomendations**
+
+- Retention Focus
+  - Launch targeted win-back campaigns for “Can’t Lose Them” and “At Risk” customers (e.g., loyalty offers, personalized discounts).
+  - Prevent high-value churn to protect millions in revenue.
+- Growth Opportunities
+  - Nurture Promising and Potential Loyalists with engagement programs to convert them into Champions.
+  - Encourage cross-sell/upsell opportunities among mid-tier segments.
+- Resource Allocation
+  - Prioritize marketing spend on Champions & Loyal Customers for long-term retention.
+  - Reduce investment in Lost/Hibernating segments where ROI is low.
+
+ ### 📈 b. Segment Analyze
+
+ 👑 **Champions** (8.8% Customers | 66.7% Revenue)
+ 
+<img width="2562" height="1448" alt="Champions" src="https://github.com/user-attachments/assets/a272e74b-c464-48ac-9e22-fb48deafe0f9" />
+
+- Highlights:
+  - Generate the highest revenue share despite small base.
+  - Purchase concentration in Mountain Bikes (esp. Mountain-200 series).
+  - Price and quality are dominant purchase drivers.
+  - Customer type mainly B2B (91%), with strong presence in Australia & Southwest US.
+
+- Recommendations:
+  - Implement VIP/loyalty programs to retain this high-value group.
+  - Bundle bikes with accessories/components to maximize revenue per purchase.
+  - Focus marketing and partnerships on key regions and B2B customers.
 
 
+🛑 **Can’t Lose Them** (9% Customers | 15% Revenue)
+
+<img width="2560" height="1440" alt="Cant lose them" src="https://github.com/user-attachments/assets/e17146bf-0e5c-4822-be19-f16a7dbd2e98" />
+
+- Highlights:
+  - Contribute 15% total revenue (~16.5M), very frequent buyers.
+  - Dominated by Mountain Bikes & Road Bikes (95% revenue).
+  - Customers are mainly motivated by Price (47%) and Promotion (23%).
+  - Strong base in the Southwest, Northwest, and Australia.
+  - However, they have the longest recency (475 days since last purchase).
+
+- Recommendations:
+  - Launch targeted win-back campaigns (discounts, personalized offers).
+  - Bundle promotions for bike accessories/components to diversify spend.
+  - Apply loyalty perks (extended warranty, exclusive early launches) to re-engage.
+
+⚠️ **At Risk** (12.5% Customers | 7.1% Revenue)
+
+<img width="2562" height="1448" alt="At Risk" src="https://github.com/user-attachments/assets/f065d6c8-972b-4ade-8f3d-3339054d20b5" />
+
+- Highlights:
+  - Account for 7.1% revenue (~7.6M), mostly from Road Bikes (59%).
+  - Heavily price-sensitive (72%), low response to quality/brand.
+  - Customer base grew to ~2,200, but engagement dropped sharply (276 days since last purchase).
+  - Highly concentrated in Australia.
+
+- Recommendations:
+  - Run time-limited promotions focused on road bikes to trigger urgency.
+  - Offer installment/financing plans to reduce the price barrier.
+  - Use customer surveys to explore why churn risk is rising.
