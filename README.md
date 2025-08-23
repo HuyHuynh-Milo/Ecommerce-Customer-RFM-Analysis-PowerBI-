@@ -33,18 +33,15 @@ To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework p
   - Customers with very high scores such as 555, 554, 544 are called Champion
   - Low RFM score, such as 111, 112, 121 are Lost customer 
 - Segmentation
-  - From the RFM analysis, I focused on 6 key customer segments that are the most relevant for business strategy:
+  - Segmentation explaining:
 
 | Segment               | Business Meaning |
 |-----------------------|------------------|
 | **Champions**         | High-value customers who purchase frequently and recently. Generously paying and will make a purchase anytime soon|
-| **Loyal Customers**   | Regular customers with consistent purchases and spending pretty high|
-| **Potential Loyalist**| Customers who have been buying recently, middle level of spending, and purchased many times  |
-| **Promising**         | Recently buying or maybe new customers with high spending but not shopping quite often. |
 | **Can’t Lose Them**   | High-value customers with consistent buying in the past, who haven’t purchased in a while.  |
 | **At Risk**           | Customers showing signs of churn, bought a lot and many times in the past |
 
-
+- For full segmentation explanation, please check the Appendix at the bottom of this page.
 
 🏹 **Who is this project for**
 - The marketing department who wanna take significant action on their campaign.
@@ -296,3 +293,44 @@ RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[
   - Run time-limited promotions focused on road bikes to trigger urgency.
   - Offer installment/financing plans to reduce the price barrier.
   - Use customer surveys to explore why churn risk is rising.
+
+### 🛬 3. Summary
+
+Customer behavior is highly polarized: a small share of customers (Champions) contributes the majority of revenue, while other groups like Can’t Lose Them and At Risk show strong historical value but declining activity.
+- Revenue is concentrated in a few loyal segments, highlighting their critical role in business performance.
+- Retention risk is significant: many high-value customers have not purchased for a long time.
+- Opportunities exist in re-engaging lapsed buyers and nurturing mid-tier customers to move upward.
+
+Recommendations:
+- Double down on loyalty programs and premium experiences for Champions.
+- Design win-back campaigns for lapsed high-value customers.
+- Use targeted promotions and personalized offers to shift promising customers into higher-value groups.
+
+## 📑 Appendix 
+### 👥 Customer Info
+- For more information about each customer, check the customer info dashboard
+- The dashboard contains deep information about each customer
+- Selecting the customer name to reach out to their personal information
+
+<img width="2544" height="1440" alt="image" src="https://github.com/user-attachments/assets/d3010d4a-041c-4186-b172-364583eb76ac" />
+
+
+### 📄 RFM Segment station full table
+- RFM Segmentation full explanation
+
+| Customer Segment           | RFM Score Range                                                                 | Description                                                                                   |
+|----------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Champions                  | 555, 554, 545, 554, 455, 445                                                     | Customers who buy frequently, spend a lot, and are very recent, making them the most valuable. |
+| Loyal Customers            | 543, 444, 435, 355, 354, 345, 344, 335                                           | Customers who are committed and buy regularly over time.                                       |
+| Potential Loyalist         | 553, 551, 552, 541, 542, 533, 532, 531, 452, 451, 442, 441, 431, 453, 433, 432, 423, 353, 352, 351, 342, 341, 333, 323 | Customers who have made multiple purchases recently and could become loyal with encouragement. |
+| Recent Customers           | 512, 511, 422, 421, 412, 411, 311                                               | Customers who have recently purchased, indicating potential for further purchases.             |
+| Promising                  | 525, 524, 523, 522, 521, 515, 514, 513, 425, 424, 413, 414, 415, 315, 314, 313   | Customers with moderate frequency and recency, showing promise for growth.                     |
+| Customers Needing Attention| 535, 534, 443, 434, 343, 334, 325, 324                                          | Customers who need attention to prevent them from becoming inactive.                           |
+| About To Sleep             | 331, 321, 312, 221, 213                                                         | Customers who are at risk of becoming inactive due to reduced activity.                        |
+| At Risk                    | 255, 254, 245, 244, 235, 252, 243, 242, 235, 234, 225, 224, 153, 152, 145, 143, 142, 135, 134, 133, 125, 124 | Customers who were once active but are now at risk of leaving due to inactivity.              |
+| Can't Lose Them            | 155, 154, 144, 214, 215, 115, 114, 113                                          | Highly valuable customers who must be retained at all costs.                                   |
+| Hibernating (ngủ đông)     | 332, 322, 231, 241, 251, 233, 232, 223, 222, 132, 123, 122, 212, 211             | Inactive customers who may return with the right incentives.                                   |
+| Lost                       | 111, 112, 121, 131, 141, 151                                                    | Customers who are unlikely to return due to long inactivity.                                   |
+
+
+  
