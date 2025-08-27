@@ -19,7 +19,7 @@ The challenge lies in segmenting customers based on their using behavior to answ
 - How can we turn new or occasional users into long-term loyal ones?
 - What action could be done to achieve all those statements?
 
-To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework provides a data-driven approach to classify customers into actionable segments.
+To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework provides a data-driven approach to classify customers into actionable segments, allowing businesses to identify their most valuable customers, tailor marketing strategies, and improve customer retention and lifetime value.
 
 ### ❓ b. About RFM Analysis
 - RFM (Recency – Frequency – Monetary) analysis is a customer segmentation technique widely used in marketing and customer relationship management. It evaluates customer value based on three key dimensions:
