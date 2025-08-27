@@ -246,6 +246,8 @@ RFM Score = 'RFM Table'[Recency score]&'RFM Table'[Frequency Score]&'RFM Table'[
   - Reduce investment in Lost/Hibernating segments where ROI is low.
 
  ### 📈 b. Segment Analyze
+ 
+- The discussion will focus on the top 3 most profitable and most frequently purchase segmentations: **Champions, Can't lose them, and At risk**. 
 
  👑 **Champions** (8.8% Customers | 66.7% Revenue)
  
