@@ -48,7 +48,7 @@ To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework p
 - Sales managers who need to identify high-value users to prioritise efforts.
 - Business Analyst and Data Analyst who want to understand customer behaviour through segmentation.
 
-## 📂 Dataset Description & Data Structure
+## 📂 2. Dataset Description & Data Structure
 **🗃️ Raw Dataset**
 - This is a dataset of an imaginary e-commerce company named *Adventure Works*, they sells bicycles and things related to sport.
 - The dataset is in the Google cloud service, to get the data, use *Google BigQuery*. Check for it:
@@ -128,7 +128,7 @@ USING(CustomerID)
 
 - The main table contain more than 110K rows and the other 2 contain specific information of products and customers 
 
-## 📋 Main process in Power BI
+## 📋3. Main process in Power BI
 ### 1. ⚒️ Preprocessing Data
 💻 **a. RFM Calculate**
 **Recency calculation**
@@ -308,7 +308,7 @@ Recommendations:
 - Design win-back campaigns for lapsed high-value customers.
 - Use targeted promotions and personalized offers to shift promising customers into higher-value groups.
 
-## 📑 Appendix 
+## 📑4. Appendix 
 ### 👥 Customer Info
 - For more information about each customer, check the customer info dashboard
 - The dashboard contains deep information about each customer
