@@ -54,7 +54,8 @@ To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework p
 - The dataset is in the Google cloud service, to get the data, use *Google BigQuery*. Check for it:
   - [BigQuery Plaform](https://cloud.google.com/bigquery/docs/sandbox)
 - This is a very massive dataset with several tables contain information about sales, customers, employees, manufacutures, etc. connect to each other using ***keys***.
-  
+- Here is an example for the sophistication of the dataset:
+ 
   <img width="912" height="863" alt="image" src="https://github.com/user-attachments/assets/9cd7ad67-d1f4-4746-8dd5-d8d0aea1011c" />
 
 - For this project we only need tables contain information of **sales, customers, products and countries**.
