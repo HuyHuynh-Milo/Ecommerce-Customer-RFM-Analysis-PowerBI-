@@ -132,6 +132,7 @@ USING(CustomerID)
 ## 📋3. Main process in Power BI
 ### 1. ⚒️ Preprocessing Data
 💻 **a. RFM Calculate**
+
 **Recency calculation**
 - For the recency, just substract the most recent day in the data set with the last day that user made a purchase (lastPurchasedDay)
 ```dax
