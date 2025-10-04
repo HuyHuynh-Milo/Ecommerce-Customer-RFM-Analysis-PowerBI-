@@ -57,7 +57,7 @@ To address this, the **RFM (Recency, Frequency, Monetary)** analysis framework p
   
   <img width="912" height="863" alt="image" src="https://github.com/user-attachments/assets/9cd7ad67-d1f4-4746-8dd5-d8d0aea1011c" />
 
-- For this project we only need tables contain information of sales, customers, products and countries.
+- For this project we only need tables contain information of **sales, customers, products and countries**.
 
 **📩 Get Data**
 - Using SQL to get data form cloud service:
