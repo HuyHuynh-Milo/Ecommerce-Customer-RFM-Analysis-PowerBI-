@@ -2,6 +2,7 @@
 
 📊 This project resolves the customer segmentation problem by using RFM clustering with the support of the quintile algorithm. Visualize the main output with the Power BI toolset and get the data from Google Cloud Console via BigQuery
 
+👉 Check out my Publish Dashboard [Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDI5ZWIyZTEtMDUzNC00MTBiLThjM2EtMWViYTJmZmNlYjVjIiwidCI6ImFhNDI5ZTcxLTQwZWMtNGU5Yy1iOTg4LWQwY2I1ZTAzODVlZCIsImMiOjEwfQ%3D%3D)
 ![customer-segmentation-ezgif com-webp-to-jpg-converter](https://github.com/user-attachments/assets/6bfcf138-464a-4d0d-9c5f-58916662f7c3)
 
 - Author: Huy Huynh
