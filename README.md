@@ -1,4 +1,4 @@
-# Ecommerce-Customer-RFM-Analysis-PBI-
+# Ecommerce-Customer-Behaviour-Analysis-PBI-
 
 📊 This project resolves the customer segmentation problem by using RFM clustering with the support of the quintile algorithm. Visualize the main output with the Power BI toolset and get the data from Google Cloud Console via BigQuery
 
